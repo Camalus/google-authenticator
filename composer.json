@@ -1,0 +1,23 @@
+{
+    "name": "Camalus/google-authenticator",
+    "description": "Code to authenticate against the Google Authenticator app",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rob Wilson",
+            "email": "rob@dev-toolbox.co.uk"
+        }
+    ],
+    "require": {
+        "Christian-Riesen/base32": "^1.2",
+        "paragonie/random_compat": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Camalus\\GoogleAuthenticator\\": "src"
+        }
+    }
+}
