@@ -6,11 +6,8 @@ class SecretFactory
 {
     protected $secretLength;
 
-    // For some reason the maniac who came up with base32 encoding decided they hated 0 and 1...
-    protected $base32Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
-
     /**
-     * @param int $secretLength - this is the length of the encoded string, as such, it must be divisible by 8
+     * @param int $secretLength
      */
     public function __construct($secretLength = 16)
     {
@@ -31,16 +28,27 @@ class SecretFactory
     }
 
     /**
-     * Interestingly, the easiest way to get truly random key is just to iterate through the base 32 chars picking random
-     * characters
+     * @return string
      */
     public function generateSecretKey()
     {
         $key = "";
         while (strlen($key) < $this->secretLength) {
-            $key .= $this->base32Chars[random_int(0, 31)];
+            $key .= $this->_getBase32LookupTable();
         }
 
         return $key;
+    }
+
+    protected function _getBase32LookupTable()
+    {
+        $base32Chars = [
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', //  7
+            'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', // 15
+            'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', // 23
+            'Y', 'Z', '2', '3', '4', '5', '6', '7', // 31
+        ];
+        return $base32Chars[random_int(0, 31)];
+
     }
 }

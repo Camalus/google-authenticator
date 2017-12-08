@@ -12,6 +12,7 @@
         "Christian-Riesen/base32": "^1.2",
         "paragonie/random_compat": "^2.0"
     },
+    "minimum-stability": "dev",
     "require-dev": {
         "phpunit/phpunit": "^5.2.2"
     },

@@ -16,7 +16,7 @@ class Secret
      */
     public function __construct($issuer, $accountName, $secretKey)
     {
-        // As per spec sheet
+
         if (strpos($issuer.$accountName, ":")!==false) {
             throw new \InvalidArgumentException("Neither the 'Issuer' parameter nor the 'AccountName' parameter may contain a colon");
         }
