@@ -1,6 +1,6 @@
 <?php
 
-namespace Camalus\GoogleAuthenticator;
+namespace devtoolboxuk\google2fa;
 
 use Base32\Base32;
 
@@ -16,7 +16,7 @@ class GoogleAuthenticator
     public function authenticate($secret, $code)
     {
         $correct = false;
-        for ($i=-1; $i<=1; $i++) {
+        for ($i = -1; $i <= 1; $i++) {
             if ($this->calculateCode($secret) == $code) {
                 $correct = true;
                 break;
@@ -26,12 +26,12 @@ class GoogleAuthenticator
         return $correct;
     }
 
-    protected function getTimeSlice($offset=0)
+    protected function getTimeSlice($offset = 0)
     {
         return floor(time() / 30) + ($offset * 30);
     }
 
-    public function calculateCode($secret, $timeSlice=null)
+    public function calculateCode($secret, $timeSlice = null)
     {
         // If we haven't been fed a timeSlice, then get one.
         $timeSlice = $timeSlice ? $timeSlice : $this->getTimeSlice();

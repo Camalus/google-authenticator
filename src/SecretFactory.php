@@ -1,6 +1,6 @@
 <?php
 
-namespace Camalus\GoogleAuthenticator;
+namespace devtoolboxuk\google2fa;
 
 class SecretFactory
 {
@@ -21,6 +21,7 @@ class SecretFactory
      * @param $issuer
      * @param $accountName
      * @return Secret
+     * @throws \Exception
      */
     public function create($issuer, $accountName)
     {
@@ -29,6 +30,7 @@ class SecretFactory
 
     /**
      * @return string
+     * @throws \Exception
      */
     public function generateSecretKey()
     {
@@ -40,6 +42,10 @@ class SecretFactory
         return $key;
     }
 
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
     protected function _getBase32LookupTable()
     {
         $base32Chars = [

@@ -1,5 +1,5 @@
 {
-    "name": "Camalus/google-authenticator",
+    "name": "devtoolboxuk/google2fa",
     "description": "Code to authenticate against the Google Authenticator app",
     "license": "MIT",
     "authors": [
@@ -12,13 +12,12 @@
         "Christian-Riesen/base32": "^1.2",
         "paragonie/random_compat": "^2.0"
     },
-    "minimum-stability": "dev",
     "require-dev": {
         "phpunit/phpunit": "^5.2.2"
     },
     "autoload": {
         "psr-4": {
-            "Camalus\\GoogleAuthenticator\\": "src"
+            "devtoolboxuk\\google2fa\\": "src"
         }
     }
 }
